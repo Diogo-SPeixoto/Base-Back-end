@@ -1,6 +1,6 @@
 
+import { prisma } from "../plugins/prisma";
 import { hashPassword } from "../utils/hash";
-import { prisma } from "../plugins/prisma.js";
 
 export async function createUserService({
   name,
@@ -19,7 +19,7 @@ export async function createUserService({
   }
 
   const user = await prisma.user.create({
-    data: { name, email, password: await hashPassword(password) },
+    data:{ name, email, password: await hashPassword(password) },
   });
 
   const { password: _, ...userWithoutPassword } = user;
@@ -27,9 +27,8 @@ export async function createUserService({
 }
 
 export async function getUserByIdService(id: string) {
-
   const user = await prisma.user.findUnique({ where: { id } });
-
+  
   if (!user) {
     const error: any = new Error("User not found");
     error.code = "USER_NOT_FOUND";

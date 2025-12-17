@@ -1,6 +1,6 @@
 
+import { prisma } from "../plugins/prisma";
 import { verifyPassword } from "../utils/hash";
-import { prisma } from "../plugins/prisma.js";
 
 export async function loginService({
   email,

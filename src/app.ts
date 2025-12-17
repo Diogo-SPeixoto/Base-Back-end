@@ -3,10 +3,10 @@ import fastify from "fastify";
 import { ZodError } from "zod";
 import { usersRoutes } from "./routes/users";
 import jwtPlugin from "./plugins/jwt.js";
-import prismaPlugin from "./plugins/prisma.js";
 import cookiePlugin from "./plugins/cookie.js";
 import { ErrorCatalog } from "./errors";
 import { authRoutes } from "./routes/auth";
+import prismaPlugin from "./plugins/prisma";
 
 type BusinessErrorCode = keyof typeof ErrorCatalog;
 

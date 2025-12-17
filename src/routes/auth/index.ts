@@ -1,8 +1,9 @@
 
 import { FastifyInstance } from "fastify";
-import { loginHandler, logoutHandler } from "../../controllers/auth.controller";
+import { loginHandler, logoutHandler, refreshTokenHandler } from "../../controllers/auth.controller";
 
 export async function authRoutes(app: FastifyInstance) {
     app.post("/login", loginHandler);
-    app.post("/logout", logoutHandler);
+    app.post("/refresh", refreshTokenHandler);
+    app.delete("/logout", logoutHandler);
 }

@@ -12,7 +12,7 @@ const jwtPlugin = fp(async (app) => {
   app.register(fastifyJwt, {
     secret: process.env.JWT_SECRET as string,
     cookie: {
-      cookieName: "token",
+      cookieName: "accessToken",
       signed: true,
     },
   });
